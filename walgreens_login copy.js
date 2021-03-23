@@ -15,7 +15,12 @@ async function login(params) {
     ignoreHTTPSErrors: true,
   });
   const pages = await browser.pages();
+
+
   page = pages[0];
+
+  const cookies = JSON.parse(await fs.readFileSync('./cookies.json'));
+  await page.setCookie(...cookies);
   await page.setViewport({ width: 1000, height: 1000 });
 //   await page.setRequestInterception(true);
 //   page.on('request', async (req) => {

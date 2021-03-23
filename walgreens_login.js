@@ -14,6 +14,8 @@ async function login(params) {
   });
   const pages = await browser.pages();
   page = pages[0];
+  const cookies1 = JSON.parse(await fs.readFileSync('./cookies1.json'));
+  await page.setCookie(...cookies1);
   await page.setViewport({ width: 1000, height: 1000 });
 //   await page.setRequestInterception(true);
 //   page.on('request', async (req) => {
@@ -58,7 +60,7 @@ async function login(params) {
 //   https://www.walgreens.com/login.jsp
   
   let cookies = await page.cookies('https://www.walgreens.com')
-  fs.writeFileSync('cookies.json', JSON.stringify(cookies, null, 2));
+  fs.writeFileSync('cookies1.json', JSON.stringify(cookies, null, 2));
   console.log(cookies)
   await page.close()
   await browser.close();
