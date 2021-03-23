@@ -486,7 +486,7 @@ let browser = null;
 let page = null;
 async function login(params) {
   console.log(__dirname +'/tmp3');
-  if(process.cwd().includes('gene')){
+  if(process.cwd().includes('GitHub')){
     browser = await puppeteer.launch({ 
       headless: false,
       userDataDir:'tmp3'
@@ -538,7 +538,7 @@ async function login(params) {
 //   https://www.walgreens.com/login.jsp
   
   let cookies = await page.cookies('https://www.walgreens.com')
-  if(process.cwd().includes('gene')){
+  if(process.cwd().includes('GitHub')){
     fs.writeFileSync('cookies.json', JSON.stringify(cookies, null, 2));
   }
   
@@ -548,7 +548,7 @@ async function login(params) {
   return cookies;
 }
 
-if(process.cwd().includes('gene')){
+if(process.cwd().includes('GitHub')){
   (async function go(){
       await login()
   })()
