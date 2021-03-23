@@ -1,3 +1,8 @@
+chome-aws-lambda
+python
+tmp3
+venv
+
 # Logs
 logs
 *.log
